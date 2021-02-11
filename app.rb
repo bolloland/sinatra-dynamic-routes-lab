@@ -14,12 +14,14 @@ class App < Sinatra::Base
     end
 
     get '/say/:number/:phrase' do
-        words = params[:phrase]
-        count = params[:number].to_i
-        binding.pry
-        count.times do "#{words}"
-        end
-      end
+      @answer = ''  
+      
+      words = params[:phrase]
+      count = params[:number].to_i
+        
+      count.times {puts @answer += words}
+      @answer
+    end
     
       get '/say/:word1/:word2/:word3/:word4/:word5' do
         "#{params[:word1]} #{params[:word2]} #{params[:word3]} #{params[:word4]} #{params[:word5]}."
